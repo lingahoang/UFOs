@@ -70,9 +70,7 @@ buildTable(tableData);
   
     // 9. Loop through all of the filters and keep any data that
     // matches the filter values
-    tbody.html("");
-
-    data.forEach((filters) => {
+    data.forEach((dataRow) => {
       let row = tbody.append("tr");
       Object.values(dataRow).forEach((val) => {
         let cell = row.append("td");
