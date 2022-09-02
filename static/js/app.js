@@ -52,8 +52,7 @@ function updateFilters() {
   }
 
     // 6. Call function to apply all filters and rebuild the table
-  updateTable();
-  
+  filterTable();
 }
 
 buildTable(tableData);
@@ -71,9 +70,16 @@ buildTable(tableData);
   
     // 9. Loop through all of the filters and keep any data that
     // matches the filter values
-    if (elementValue) {
-    filteredData = filteredData.filter(elementValue => elementValue.filteredData === tableData);
-    }
+    tbody.html("");
+
+    data.forEach((filters) => {
+      let row = tbody.append("tr");
+      Object.values(dataRow).forEach((val) => {
+        let cell = row.append("td");
+        cell.text(val);
+        }
+      );
+    });
 
     // 10. Finally, rebuild the table using the filtered data
     updateTable();
